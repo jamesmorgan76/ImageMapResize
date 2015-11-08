@@ -17,7 +17,7 @@ If ImageRatio = screenRatio {
 
 else {
 
-	ImageRatio > screenRatio {
+	If ImageRatio > screenRatio {
 		newimagewidth = [[sys:devicePortraitHeight]];
 		hotspotMultiplier = [[sys:devicePortraitHeight]] / 534;
 		newimageheight = hotspotMultiplier * imageheight;
