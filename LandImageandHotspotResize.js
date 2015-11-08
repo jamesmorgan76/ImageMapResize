@@ -14,35 +14,33 @@ var hotspotMultiplier;
 
 imagewidth = 534;
 imageheight = 320;
-ImageRatio = imagewidth / imageheight;
+ImageRatio = (imagewidth / imageheight);
 
 screenWidth = [[sys:devicePortraitHeight]];
 screenHeight = [[sys:devicePortraitWidth]];
-screenRatio = screenWidth / screenHeight;
+screenRatio = (screenWidth / screenHeight);
 
-If ImageRatio = screenRatio {
+if (ImageRatio = screenRatio) {
 	newimagewidth = imagewidth;
 	newimageheight = imageheight;
-	hotspotMultiplier = [[sys:devicePortraitHeight]] / 534;
+	hotspotMultiplier = ([[sys:devicePortraitHeight]] / 534);
 }
+
+else if (ImageRatio > screenRatio) {
+		newimagewidth = [[sys:devicePortraitHeight]];
+		hotspotMultiplier = ([[sys:devicePortraitHeight]] / 534);
+		newimageheight = (hotspotMultiplier * imageheight);
+}
+
+
 
 else {
-
-	If ImageRatio > screenRatio {
-		newimagewidth = [[sys:devicePortraitHeight]];
-		hotspotMultiplier = [[sys:devicePortraitHeight]] / 534;
-		newimageheight = hotspotMultiplier * imageheight;
-		}
-
-	}
-
-	else {
 		newimageheight = [[sys:devicePortraitWidth]];
-		hotspotMultiplier = [[sys:devicePortraitWidth]] / 320;
-		newimagewith = hotspotMultiplier * imagewidth;
-	}
-
+		hotspotMultiplier = ([[sys:devicePortraitWidth]] / 320);
+		newimagewith = (hotspotMultiplier * imagewidth);
 }
+
+
 
 window.location.assign("script:SetImageHeight?newimageheight=" + newimageheight);
 }
