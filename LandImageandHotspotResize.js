@@ -1,5 +1,16 @@
 //Landscape Calc
 
+window.onload = function(){
+
+var imagewidth;
+var imageheight;
+var ImageRatio;
+var screenWidth;
+var screenHeight;
+var screenRatio;
+var newimagewidth;
+var screenHeight;
+var hotspotMultiplier;
 
 imagewidth = 534;
 imageheight = 320;
@@ -31,6 +42,9 @@ else {
 		newimagewith = hotspotMultiplier * imagewidth;
 	}
 
+}
+
+window.location.assign("script:SetImageHeight?newimageheight=" + newimageheight);
 }
 
 
